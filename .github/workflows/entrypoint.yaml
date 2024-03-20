@@ -41,28 +41,28 @@ jobs:
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-upgrade.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-upgrade.yml@main
 
   matrixone-compose-ci:
     name: Matrixone Compose CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-compose.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-compose.yml@main
 
   matrixone-standalone-ci:
     name: Matrixone Standlone CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-standalone.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-standalone.yml@main
 
   # matrixone-utils-ci:
   #   name: Matrixone Utils CI
   #   needs: 
   #     - check-pr-valid
   #   if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-  #   uses: matrixorigin/matrixone/.github/workflows/utils.yaml@main
+  #   uses: matrixorigin/matrixone/.github/workflows/utils.yml@main
   #   secrets:
   #     TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
   #     S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
