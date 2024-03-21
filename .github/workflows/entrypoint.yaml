@@ -57,18 +57,18 @@ jobs:
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
     uses: lcxznpy/mo_ci/.github/workflows/e2e-standalone.yml@main
 
-  # matrixone-utils-ci:
-  #   name: Matrixone Utils CI
-  #   needs: 
-  #     - check-pr-valid
-  #   if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-  #   uses: matrixorigin/matrixone/.github/workflows/utils.yml@main
-  #   secrets:
-  #     TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
-  #     S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
-  #     S3REGION: ${{ secrets.S3REGION }}
-  #     S3APIKEY: ${{ secrets.S3APIKEY }}
-  #     S3APISECRET: ${{ secrets.S3APISECRET }}
-  #     S3BUCKET: ${{ secrets.S3BUCKET }}
-  #     DOCU_GROUP_HOOK: ${{ secrets.DOCU_GROUP_HOOK }}
-  #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  matrixone-utils-ci:
+    name: Matrixone Utils CI
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: lcxznpy/matrixone/.github/workflows/utils.yml@main
+    secrets:
+      TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
+      S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
+      S3REGION: ${{ secrets.S3REGION }}
+      S3APIKEY: ${{ secrets.S3APIKEY }}
+      S3APISECRET: ${{ secrets.S3APISECRET }}
+      S3BUCKET: ${{ secrets.S3BUCKET }}
+      DOCU_GROUP_HOOK: ${{ secrets.DOCU_GROUP_HOOK }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
