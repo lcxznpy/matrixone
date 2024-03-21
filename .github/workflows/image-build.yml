@@ -15,4 +15,9 @@ permissions:
 jobs:
   dockerhub:
     uses: lcxznpy/CI/.github/workflows/image-build.yml@main
+    secrets:
+      DH_USERNAME: ${{ secrets.DH_USERNAME }}
+      DH_PASS: ${{ secrets.DH_PASS }}
+      ACR_USER: ${{ secrets.ACR_USER }}
+      ACR_PASS: ${{ secrets.ACR_PASS }}
   
