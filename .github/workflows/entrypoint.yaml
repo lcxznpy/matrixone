@@ -62,7 +62,7 @@ jobs:
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/matrixone/.github/workflows/utils.yml@main
+    uses: lcxznpy/mo_ci/.github/workflows/utils.yml@main
     secrets:
       TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
       S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
