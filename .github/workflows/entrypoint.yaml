@@ -23,46 +23,46 @@ jobs:
   #         title_for_find_issue: "Which issue(s) this PR fixes:"
   #         title_for_find_content: "What this PR does / why we need it:"
 
-  # matrixone-ci:
-  #   name: Matrixone CI
-  #   needs: 
-  #     - check-pr-valid
-  #   if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-  #   uses: matrixorigin/matrixone/.github/workflows/ci.yaml@main
-  #   secrets:
-  #     S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
-  #     S3REGION: ${{ secrets.S3REGION }}
-  #     S3APIKEY: ${{ secrets.S3APIKEY }}
-  #     S3APISECRET: ${{ secrets.S3APISECRET }}
-  #     S3BUCKET: ${{ secrets.S3BUCKET }}
+  matrixone-ci:
+    name: Matrixone CI
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: lcxznpy/mo_ci/.github/workflows/ci.yml@main
+    secrets:
+      S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
+      S3REGION: ${{ secrets.S3REGION }}
+      S3APIKEY: ${{ secrets.S3APIKEY }}
+      S3APISECRET: ${{ secrets.S3APISECRET }}
+      S3BUCKET: ${{ secrets.S3BUCKET }}
   
   matrixone-upgrade-ci:
     name: Matrixone Upgrade CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-upgrade.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-upgrade.yml@main
 
   matrixone-compose-ci:
     name: Matrixone Compose CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-compose.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-compose.yml@main
 
   matrixone-standalone-ci:
     name: Matrixone Standlone CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: lcxznpy/mo_ci/.github/workflows/e2e-standalone.yaml@main
+    uses: lcxznpy/mo_ci/.github/workflows/e2e-standalone.yml@main
 
   # matrixone-utils-ci:
   #   name: Matrixone Utils CI
-  #   needs: 
-  #     - check-pr-valid
-  #   if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-  #   uses: matrixorigin/matrixone/.github/workflows/utils.yaml@main
+  #   # needs: 
+  #   #   - check-pr-valid
+  #   # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+  #   uses: lcxznpy/mo_ci/.github/workflows/utils.yml@main
   #   secrets:
   #     TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
   #     S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
