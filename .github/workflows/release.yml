@@ -8,6 +8,10 @@ on:
 jobs:
   linux-amd64-build-job:
     uses: lcxznpy/CI/.github/workflows/release.yml@main
+    secrets:
+      TOKEN_ACTION: ${{ secrets.TOKEN_ACTION}}
+      APPLE_DEVELOPER_CERTIFICATE_P12_BASE64: 123
+      APPLE_DEVELOPER_CERTIFICATE_PASSWORD: 456
   #   runs-on: ubuntu-20.04
   #   steps:
   #     - name: Checkout source
