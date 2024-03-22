@@ -14,3 +14,5 @@ on:
 jobs:
   issue-notify:
     uses: lcxznpy/CI/.github/workflows/robot.yml@main
+    secrets:
+      TOKEN_ACTION: ${{ secrets.TOKEN_ACTION}}
