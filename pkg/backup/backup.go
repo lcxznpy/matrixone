@@ -226,3 +226,7 @@ func fromCsvBytes(data []byte) ([][]string, error) {
 	r := csv.NewReader(bytes.NewReader(data))
 	return r.ReadAll()
 }
+
+fun AADD() int{
+	return 1 + 1
+}
