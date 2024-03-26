@@ -5,11 +5,11 @@ on:
     branches: [ main,'[0-9]+.[0-9]+*' ]
     types:
       - closed
-    paths:
-      - '**.go'
-      - '**.c'
-      - '**.h'
-      - '.github/workflows/merge-trigger-standalone.yaml'
+    # paths:
+    #   - '**.go'
+    #   - '**.c'
+    #   - '**.h'
+    #   - '.github/workflows/merge-trigger-standalone.yaml'
 
 jobs:
   pessimistic-bvt-darwin-arm64:
