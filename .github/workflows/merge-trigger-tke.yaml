@@ -14,6 +14,9 @@ on:
 jobs:
   docker_image_build:
     uses: lcxznpy/CI/.github/workflows/merge-trigger-tke.yaml@main
+    secrets:
+      TCR_USERNAME: ${{ secrets.TCR_USERNAME}}
+      TCR_TOKEN: ${{ secrets.TCR_TOKEN}}
   #   runs-on: amd64-mo-guangzhou-dind
   #   if: ${{ github.event.pull_request.merged == true }}
   #   timeout-minutes: 30
