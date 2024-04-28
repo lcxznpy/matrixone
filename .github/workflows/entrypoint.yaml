@@ -10,25 +10,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-pr-valid:
-    runs-on: ubuntu-latest
-    name: CHECK PR VALID
-    outputs:
-      pr_valid: ${{ steps.check_pr_valid.outputs.pull_valid }}
-    steps:
-      - uses: guguducken/pulls-content-check@main
-        id: check_pr_valid
-        with:
-          github_token: ${{ secrets.TOKEN_ACTION }}
-          title_for_find_issue: "Which issue(s) this PR fixes:"
-          title_for_find_content: "What this PR does / why we need it:"
+  # check-pr-valid:
+  #   runs-on: ubuntu-latest
+  #   name: CHECK PR VALID
+  #   outputs:
+  #     pr_valid: ${{ steps.check_pr_valid.outputs.pull_valid }}
+  #   steps:
+  #     - uses: guguducken/pulls-content-check@main
+  #       id: check_pr_valid
+  #       with:
+  #         github_token: ${{ secrets.TOKEN_ACTION }}
+  #         title_for_find_issue: "Which issue(s) this PR fixes:"
+  #         title_for_find_content: "What this PR does / why we need it:"
 
   matrixone-ci:
     name: Matrixone CI
-    needs: 
-      - check-pr-valid
-    if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/ci.yaml@main
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: matrixorigin/CI/.github/workflows/ci.yaml@change-set-go
     secrets:
       S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
       S3REGION: ${{ secrets.S3REGION }}
@@ -38,31 +38,31 @@ jobs:
   
   matrixone-upgrade-ci:
     name: Matrixone Upgrade CI
-    needs: 
-      - check-pr-valid
-    if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-upgrade.yaml@main
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: matrixorigin/CI/.github/workflows/e2e-upgrade.yaml@change-set-go
 
   matrixone-compose-ci:
     name: Matrixone Compose CI
-    needs: 
-      - check-pr-valid
-    if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-compose.yaml@main
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: matrixorigin/CI/.github/workflows/e2e-compose.yaml@change-set-go
 
   matrixone-standalone-ci:
     name: Matrixone Standlone CI
-    needs: 
-      - check-pr-valid
-    if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-standalone.yaml@main
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: matrixorigin/CI/.github/workflows/e2e-standalone.yaml@change-set-go
 
   matrixone-utils-ci:
     name: Matrixone Utils CI
-    needs: 
-      - check-pr-valid
-    if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/utils.yaml@main
+    # needs: 
+    #   - check-pr-valid
+    # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
+    uses: lcxznpy/CI/.github/workflows/utils.yaml@change-set-go
     secrets:
       TOKEN_ACTION: ${{ secrets.TOKEN_ACTION }}
       S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
