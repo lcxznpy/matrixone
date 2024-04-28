@@ -28,7 +28,7 @@ jobs:
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/ci.yaml@change-set-go
+    uses: lcxznpy/CI/.github/workflows/ci.yaml@change-set-go
     secrets:
       S3ENDPOINT: ${{ secrets.S3ENDPOINT }}
       S3REGION: ${{ secrets.S3REGION }}
@@ -41,21 +41,21 @@ jobs:
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-upgrade.yaml@change-set-go
+    uses: lcxznpy/CI/.github/workflows/e2e-upgrade.yaml@change-set-go
 
   matrixone-compose-ci:
     name: Matrixone Compose CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-compose.yaml@change-set-go
+    uses: lcxznpy/CI/.github/workflows/e2e-compose.yaml@change-set-go
 
   matrixone-standalone-ci:
     name: Matrixone Standlone CI
     # needs: 
     #   - check-pr-valid
     # if: ${{ needs.check-pr-valid.outputs.pr_valid == 'true' }}
-    uses: matrixorigin/CI/.github/workflows/e2e-standalone.yaml@change-set-go
+    uses: lcxznpy/CI/.github/workflows/e2e-standalone.yaml@change-set-go
 
   matrixone-utils-ci:
     name: Matrixone Utils CI
