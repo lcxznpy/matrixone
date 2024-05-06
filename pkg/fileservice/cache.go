@@ -75,6 +75,7 @@ func (c *CacheConfig) setDefaults() {
 		target := 0.8
 		c.DiskEvictTarget = &target
 	}
+	fmt.Println("qaq")
 	c.RPC.Adjust()
 }
 
