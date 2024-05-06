@@ -29,6 +29,7 @@ import (
 	"github.com/matrixorigin/matrixone/pkg/fileservice"
 	"github.com/matrixorigin/matrixone/pkg/logutil"
 	"github.com/matrixorigin/matrixone/pkg/sql/parsers/tree"
+	"fmt"
 )
 
 // Backup
@@ -104,6 +105,7 @@ func Backup(ctx context.Context, bs *tree.BackupStart, cfg *Config) error {
 func backupBuildInfo(ctx context.Context, cfg *Config) error {
 	cfg.Metas.AppendVersion(Version)
 	cfg.Metas.AppendBuildinfo(buildInfo())
+	fmt.Println("qaq")
 	return nil
 }
 
